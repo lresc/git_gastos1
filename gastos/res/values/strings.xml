@@ -4,5 +4,20 @@
     <string name="app_name">gastos</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="pppl">Pantalla Principal</string>
+    <string name="new_group">Nuevo Grupo</string>
+    <string name="watch_group">Ver Grupo</string>
+    <string name="edit_group">Editar Grupo</string>
+    <string name="new_member">Nuevo Miembro</string>
+    <string name="group_name">Nombre del Grupo</string>
+    <string name="group_members">Miembros del grupo</string>
+    <string name="name">Nombre</string>
+    <string name="email">Email</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="sync">Sincronizar</string>
+    <string name="miembros"></string>
+    <string name="grupos">Grupos</string>
+    
 
 </resources>

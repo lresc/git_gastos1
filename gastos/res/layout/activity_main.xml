@@ -8,9 +8,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/nuevog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="@string/new_group"
+        android:onClick="clickNuevoGrupo" />
+
+    <Button
+        android:id="@+id/editarg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nuevog"
+        android:layout_alignRight="@+id/nuevog"
+        android:layout_below="@+id/nuevog"
+        android:layout_marginTop="27dp"
+        android:text="@string/edit_group"
+        android:onClick="clickEditarGrupo" />
+
+    <Button
+        android:id="@+id/verg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editarg"
+        android:layout_alignRight="@+id/editarg"
+        android:layout_below="@+id/editarg"
+        android:layout_marginTop="31dp"
+        android:text="@string/watch_group"
+        android:onClick="clickVerGrupos" />
 
 </RelativeLayout>
