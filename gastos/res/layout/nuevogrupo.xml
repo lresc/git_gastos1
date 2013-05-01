@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TableLayout android:layout_height="match_parent"
+		android:layout_width="match_parent" android:layout_gravity="center"
+		android:stretchColumns="*"
+		android:padding="30dip">
+		
     <TextView
         android:id="@+id/textView1"
         android:layout_width="144dp"
@@ -19,40 +24,47 @@
     </EditText>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
         android:text="@string/group_members" />
 
     <Button
         android:id="@+id/addmember"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/new_member" 
-        android:onClick="clickMiembro"/>
+        android:layout_marginTop="10dp"
+        android:onClick="clickMiembro"
+        android:text="@string/new_member" />
 
     <TextView
         android:id="@+id/members"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="50dp"
         android:textIsSelectable="true"/>
 
     <Button
         android:id="@+id/sincronizarMiembro"
         android:layout_width="wrap_content"
+        style="?android:attr/buttonStyleSmall"
         android:layout_height="wrap_content"
         android:text="@string/sync" />
-
+	<TableRow >
     <Button
         android:id="@+id/acep1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="?android:attr/buttonStyleSmall"
         android:text="@string/accept" />
 
     <Button
         android:id="@+id/canc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="?android:attr/buttonStyleSmall"
         android:text="@string/cancel" />
-
+    </TableRow>
+</TableLayout>
 </LinearLayout>

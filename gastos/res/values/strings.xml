@@ -18,6 +18,13 @@
     <string name="sync">Sincronizar</string>
     <string name="miembros"></string>
     <string name="grupos">Grupos</string>
-    
+    <string name="g1">¿Quién pagó?</string>
+    <string name="g2">¿Para quién?</string>
+    <string name="g3">¿Cuánto?</string>
+    <string name="g4">¿Concepto?</string>
+    <string name="g5">¿Fecha?</string>
+    <string name="g6">¿Hora?</string>
+    <string name="ubicacion">Ubicación</string>
+    <string name="recibo">Recibo</string>
 
 </resources>

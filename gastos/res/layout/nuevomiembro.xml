@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:padding="30dip">
 
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name" />
+        android:text="@string/name"
+         />
 
     <EditText
         android:id="@+id/name"
@@ -17,14 +18,15 @@
         android:ems="10" 
         android:inputType="text">
 
-        <requestFocus />
+        <requestFocus android:layout_width="wrap_content" />
+
     </EditText>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email" />
+        android:text="@string/email"
+        android:paddingTop="20dip" />
 
     <EditText
         android:id="@+id/email"
@@ -32,16 +34,23 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"/>
-    <Button
-        android:id="@+id/acept2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/accept" />
-
-    <Button
-        android:id="@+id/cancel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel" />
-
+    
+    <TableLayout android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:layout_gravity="center"
+		android:stretchColumns="*"
+		android:padding="30dip">
+	    <TableRow>
+		    <Button
+		        android:id="@+id/acept2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/accept" />
+		
+		    <Button
+		        android:id="@+id/cancel2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/cancel" />
+		</TableRow>
+	</TableLayout>
 </LinearLayout>
