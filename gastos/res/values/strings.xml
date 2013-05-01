@@ -26,5 +26,6 @@
     <string name="g6">¿Hora?</string>
     <string name="ubicacion">Ubicación</string>
     <string name="recibo">Recibo</string>
+    <string name="mapa">Mapa</string>
 
 </resources>

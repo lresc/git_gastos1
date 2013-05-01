@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-<TableLayout android:layout_height="match_parent"
-		android:layout_width="match_parent" android:layout_gravity="center"
-		android:stretchColumns="*"
-		android:padding="60dip">
-		
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+
+    <ListView
+        android:id="@+id/grupos"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/miembros" /> 
-</TableLayout>
+        android:clickable="true" 
+        android:drawSelectorOnTop="true"
+        android:divider="@color/azul">
+        
+    </ListView>
+
 </LinearLayout>
