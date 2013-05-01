@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="30dip" >
 
-    <TableLayout android:layout_height="match_parent"
-		android:layout_width="match_parent" android:layout_gravity="center"
-		android:stretchColumns="*"
-		android:padding="30dip">
+    
+		
 		
     <TextView
         android:id="@+id/textView1"
@@ -51,20 +50,27 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_height="wrap_content"
         android:text="@string/sync" />
-	<TableRow >
-    <Button
-        android:id="@+id/acep1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/buttonStyleSmall"
-        android:text="@string/accept" />
+	<LinearLayout
+	    android:id="@+id/botones"
+	    android:layout_marginTop="10dp"
+	    android:layout_weight="1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="horizontal" >
+		    
+		<Button
+	        android:id="@+id/acep1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        style="?android:attr/buttonStyleSmall"
+	        android:text="@string/accept" />
+	
+	    <Button
+	        android:id="@+id/canc1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        style="?android:attr/buttonStyleSmall"
+	        android:text="@string/cancel" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/canc1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/buttonStyleSmall"
-        android:text="@string/cancel" />
-    </TableRow>
-</TableLayout>
 </LinearLayout>
