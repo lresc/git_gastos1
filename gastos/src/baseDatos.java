@@ -24,7 +24,7 @@ public class baseDatos extends SQLiteOpenHelper {
 			"quien_pago TEXT, para_quien TEXT, cuanto INTEGER, concepto STRING, fecha NUMERIC, hora NUMERIC, foto TEXT, ubicacion TEXT)";
 	//falta deudas!!!!!!!!!!!!!!!		
 	
-	sdç
+	
 	//String sqlUpdate="ALTER TABLE grupos ADD COLUMN " //PARA ACTUALZIAZ
 			
 	
