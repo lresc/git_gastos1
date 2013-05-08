@@ -14,12 +14,15 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); 
 		setContentView(R.layout.activity_main);
+	
+	
 	}
 	
 	public void clickNuevoGrupo(View v) {//cuando se clicka
 
 		Intent i = new Intent(this, nuevoGrupo.class);
 		startActivity(i);
+		//modificar
 	}
 
 	public void clickEditarGrupo(View v){
