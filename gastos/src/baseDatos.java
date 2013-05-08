@@ -22,11 +22,9 @@ public class baseDatos extends SQLiteOpenHelper {
 			"nombre TEXT, miembros TEXT,sincronizacion INTEGER) "; 
 	String sqlCreate2="CREATE TABLE gastos (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
 			"quien_pago TEXT, para_quien TEXT, cuanto INTEGER, concepto STRING, fecha NUMERIC, hora NUMERIC, foto TEXT, ubicacion TEXT)";
-	//falta deudas!!!!!!!!!!!!!!!
+	//falta deudas!!!!!!!!!!!!!!!		
 	
-	//cuac algo mas
-	
-	
+	sdç
 	//String sqlUpdate="ALTER TABLE grupos ADD COLUMN " //PARA ACTUALZIAZ
 			
 	
