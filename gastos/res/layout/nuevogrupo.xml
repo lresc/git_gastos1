@@ -49,7 +49,8 @@
         android:layout_width="wrap_content"
         style="?android:attr/buttonStyleSmall"
         android:layout_height="wrap_content"
-        android:text="@string/sync" />
+        android:text="@string/sync" 
+        android:onClick="clickSincMiembro"/>
 	<LinearLayout
 	    android:id="@+id/botones"
 	    android:layout_marginTop="10dp"
@@ -63,7 +64,8 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        style="?android:attr/buttonStyleSmall"
-	        android:text="@string/accept" />
+	        android:text="@string/accept" 
+	        android:onClick="clickNuevoGrupo"/>
 	
 	    <Button
 	        android:id="@+id/canc1"

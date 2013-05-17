@@ -4,14 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ListView
+    <TextView
         android:id="@+id/grupos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true" 
+        android:textIsSelectable="true"
         android:drawSelectorOnTop="true"
         android:divider="@color/azul">
         
-    </ListView>
+    </TextView>
 
 </LinearLayout>

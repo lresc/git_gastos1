@@ -16,6 +16,7 @@
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
     <string name="sync">Sincronizar</string>
+    <string name="notsync">No sincronizar</string>
     <string name="miembros"></string>
     <string name="grupos">Grupos</string>
     <string name="g1">¿Quién pagó?</string>
