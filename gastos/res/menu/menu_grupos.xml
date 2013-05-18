@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_verMiembros"
+        android:title="@string/verMiembros"></item>
+    
+    <item android:id="@+id/menu_verGastos"
+        android:title="@string/verGastos"></item>
+    
+    <item android:id="@+id/menu_editarGrupo"
+        android:title="@string/editarGrupo"></item>
+    
+     <item android:id="@+id/menu_borrarGrupo"
+        android:title="@string/borrarGrupo"></item>
+     
+</menu>

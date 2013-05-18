@@ -25,13 +25,9 @@ public class MainActivity extends Activity {
 		//modificar
 	}
 
-	public void clickEditarGrupo(View v){
-
-		//DUDA: cuando clickas editar grupos, va a la pantalla de ver grupos, y de ahi, seleccionas y lo editas?? que a su vez la
-		//q editas es la pantalla de nuevo grupo pero con los campos completos no?¿
-	}
 	
 	public void clickVerGrupos(View v){
+		
 		Intent i = new Intent(this, grupos.class);
 		startActivity(i);
 	}

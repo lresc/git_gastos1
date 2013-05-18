@@ -8,7 +8,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
-    <application
+    <application 
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -32,6 +32,8 @@
 		<activity android:name=".grupos"
 				android:label="@string/grupos">
 		</activity>
+		        <activity android:name=".DisplayDialog">
+        </activity>
 		
 		
     </application>

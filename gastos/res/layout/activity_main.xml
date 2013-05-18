@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azul"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" > 
 
     	<TableLayout android:layout_height="match_parent"
 		android:layout_width="match_parent" android:layout_gravity="center"
@@ -17,15 +17,6 @@
 	        android:layout_marginTop="50dip"
 	        android:background="@color/grisOscuro"
 	        android:onClick="clickNuevoGrupo" />
-	
-	    <Button
-	        android:id="@+id/editarg"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"  
-	        android:text="@string/edit_group"
-	        android:layout_marginTop="10dip"
-	        android:background="@color/rosa"
-	        android:onClick="clickEditarGrupo" />
 	
 	    <Button
 	        android:id="@+id/verg"
