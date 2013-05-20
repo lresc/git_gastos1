@@ -32,12 +32,13 @@ public class nuevoGrupo extends Activity {
 		prueba.show();
 		
 		final EditText e1=(EditText) prueba.findViewById(R.id.name);
+		final EditText e2=(EditText) prueba.findViewById(R.id.email);
 		final Button button = (Button) prueba.findViewById(R.id.acept2);
         button.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			addMembers(e1.getText().toString(),"mail");
+			addMembers(e1.getText().toString(),e2.getText().toString());
 			prueba.cancel();
 		}});
         final Button button1 = (Button) prueba.findViewById(R.id.cancel2);
@@ -59,7 +60,7 @@ public class nuevoGrupo extends Activity {
 			
 		}
 		else{
-			miembros=miembros+  m + ", "+mail +";";
+			miembros=miembros+  m + ", "+mail +",";
 			l1.setText(l1.getText().toString()+"\n"+m);
 		}
 	}

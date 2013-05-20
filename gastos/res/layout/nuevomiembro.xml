@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" 
-    android:padding="30dip">
+    android:padding="10sp">
 
     <TextView
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -13,56 +14,51 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10" 
-        android:inputType="text">
+        android:inputType="text"
+        android:padding="10sp"
+        android:layout_below="@id/text1"/>
 
-        <requestFocus android:layout_width="wrap_content" />
-
-    </EditText>
+        
 
     <TextView
+        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email"
-        android:paddingTop="20dip" />
+        android:layout_below="@id/name" />
 
-    <EditText
+     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:ems="10"
-        android:inputType="textEmailAddress"/>
+        android:layout_below="@id/text2"
+        android:inputType="textEmailAddress" 
+        android:paddingTop="10sp"
+       />
     
-    <RadioButton
-        android:id="@+id/radioButton1"
+    <Button
+        android:id="@+id/acept2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RadioButton" 
-        android:visibility="invisible"/>
-    
-    
-    <TableLayout android:layout_height="wrap_content"
-		android:layout_width="wrap_content" android:layout_gravity="center"
-		android:stretchColumns="*"
-		android:padding="30dip">
-	    <TableRow>
-		    <Button
-		        android:id="@+id/acept2"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/accept" 
-		        />
-		
-		    <Button
-		        android:id="@+id/cancel2"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/cancel"
-		        />
-		</TableRow>
-	</TableLayout>
+        android:layout_below="@id/email"
+        
+        android:paddingTop="10sp"
+        android:text="@string/accept" />
+
+    <Button
+        android:id="@+id/cancel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/acept2"
+        android:layout_alignRight="@id/email"
+        android:layout_below="@id/email"
+        android:paddingTop="10sp"
+        android:text="@string/cancel" />
+	
+	</RelativeLayout>
 
     
-</LinearLayout>

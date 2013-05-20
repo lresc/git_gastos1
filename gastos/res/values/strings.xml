@@ -3,7 +3,7 @@
 	<string name="verMiembros">Ver Miembros</string>
 	<string name="verGastos">Ver Gastos</string>
 	<string name="editarGrupo">Editar Grupo</string>
-	<strign name="borrarGrupo">Borrar Grupo</strign>
+	<string name="borrarGrupo">Borrar Grupo</string>
     <string name="app_name">gastos</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -31,5 +31,6 @@
     <string name="recibo">Recibo</string>
     <string name="mapa">Mapa</string>
     <string name="nogrupos">No tiene grupos</string>
+    <string name="nogastos">No tiene gastos</string>
 
 </resources>

@@ -61,5 +61,7 @@ public class baseDatos extends SQLiteOpenHelper {
 		}
 		
 	}
+	//SELECT usuario,email FROM Usuarios WHERE usuario='usu1' "
+	
 
 }

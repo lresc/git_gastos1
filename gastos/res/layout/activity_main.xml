@@ -3,19 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azul"
-    tools:context=".MainActivity" > 
+    tools:context=".MainActivity" 
+    android:layout_gravity="center_vertical"
+    android:gravity="center">
 
-    	<TableLayout android:layout_height="match_parent"
-		android:layout_width="match_parent" android:layout_gravity="center"
-		android:stretchColumns="*"
-		android:padding="60dip">
 	    <Button
 	        android:id="@+id/nuevog"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"	       
+	        android:layout_height="wrap_content"	
+	         
 	        android:text="@string/new_group"
-	        android:layout_marginTop="50dip"
-	        android:background="@color/grisOscuro"
 	        android:onClick="clickNuevoGrupo" />
 	
 	    <Button
@@ -23,7 +20,9 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="10dip"
+	 
+	        android:layout_below="@id/nuevog"
 	        android:text="@string/watch_group"
 	        android:onClick="clickVerGrupos" />
-	</TableLayout>
+
 </RelativeLayout>
