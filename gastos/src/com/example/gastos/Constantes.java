@@ -12,6 +12,7 @@ public interface Constantes extends BaseColumns{
 	//Columnas en la tabla grupos
 	public static final String NOMBRE_GRUPO="nombre";
 	public static final String MIEMBROS="miembros";
+	public static final String EMAILS="emails";
 	public static final String SINCRONIZACION="sincronizacion";
 	
 	//Columnas en la tabla gastos

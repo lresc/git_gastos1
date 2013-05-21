@@ -28,7 +28,7 @@ public class baseDatos extends SQLiteOpenHelper {
 	
 	//--------------LOCAL---------------///
 	String sqlCreate="CREATE TABLE "+ TABLA_GRUPOS +" ("+ _ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " + NOMBRE_GRUPO+
-			" TEXT, "+ MIEMBROS+" TEXT, "+ SINCRONIZACION+" TEXT)"; 
+			" TEXT, "+ MIEMBROS+" TEXT, "+EMAILS+" TEXT, "+ SINCRONIZACION+" TEXT)"; 
 	
 	String sqlCreate2="CREATE TABLE "+TABLA_GASTOS +"("+_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUIEN_PAGO +" TEXT NOT NULL,"+ PARA_QUIEN+" TEXT NOT NULL,"+CUANTO+  "INTEGER NOT NULL,"+ CONCEPTO+" STRING,"+FECHA+" NUMERIC NOT NULL,"+FOTO+" TEXT,"+ UBICACION+"TEXT);";
 	//falta deudas!!!!!!!!!!!!!!!		
@@ -44,7 +44,7 @@ public class baseDatos extends SQLiteOpenHelper {
 			db=getWritableDatabase();
 		}
 		
-	Log.d("BD","3");	
+		Log.d("BD","3");	
 		db.execSQL(sqlCreate);
 		Log.d("BD","4");
 		//db.execSQL(sqlCreate2);
@@ -53,12 +53,11 @@ public class baseDatos extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		Log.d("BD","6");
-		if(newVersion>oldVersion){//NO ESTA EN LA GUIA ANDROID..
+
 			Log.d("BD","7");
 			db.execSQL(sqlUpdate);
 			//db.execSQL(sqlUpdate1);
 			onCreate(db);
-		}
 		
 	}
 	//SELECT usuario,email FROM Usuarios WHERE usuario='usu1' "

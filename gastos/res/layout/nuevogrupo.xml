@@ -1,61 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dip" >
-		
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="144dp"
-        android:layout_height="wrap_content"
-        android:text="@string/group_name" />
-
-    <EditText
-        android:id="@+id/gname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="20"
-        android:inputType="text" >       
-    </EditText>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:text="@string/group_members" />
-
-    <Button
-        android:id="@+id/addmember"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="clickMiembro"
-        android:text="@string/new_member" />
-
-    <TextView
-        android:id="@+id/members"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="50dp"
-        android:textIsSelectable="true"/>
-
-    <Button
-        android:id="@+id/sincronizarMiembro"
-        android:layout_width="wrap_content"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_height="wrap_content"
-        android:text="@string/sync" 
-        android:onClick="clickSincMiembro"/>
-	<LinearLayout
-	    android:id="@+id/botones"
-	    android:layout_marginTop="10dp"
-	    android:layout_weight="1"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:orientation="horizontal" >
-		    
+    android:background="@color/azul"
+    android:orientation="vertical">    
 		<Button
 	        android:id="@+id/acep1"
 	        android:layout_width="wrap_content"
@@ -66,10 +17,68 @@
 	
 	    <Button
 	        android:id="@+id/canc1"
+	        android:layout_toRightOf="@id/acep1"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        style="?android:attr/buttonStyleSmall"
 	        android:text="@string/cancel" />
-    </LinearLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+     	android:layout_below="@id/acep1"
+        android:text="@string/group_name" />
+
+    <EditText
+        android:id="@+id/gname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:layout_below="@id/textView1"
+        android:inputType="text" >       
+    </EditText>
+    
+        <Button
+        android:id="@+id/sincronizarMiembro"
+        android:layout_width="wrap_content"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gname"
+        android:text="@string/sync" 
+        android:onClick="clickSincMiembro"/>
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_below="@id/sincronizarMiembro"
+        android:text="@string/group_members" />
+
+    <Button
+        android:id="@+id/addmember"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"     
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/t1"
+        android:layout_below="@id/sincronizarMiembro"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="clickMiembro"
+        android:text="@string/new_member"
+        android:singleLine="true" />
+
+    <ListView
+        android:id="@+id/members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_below="@id/t1"
+        android:textSize="16sp"
+         android:clickable="true" 
+        />
+
+
+	
+</RelativeLayout>
