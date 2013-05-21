@@ -12,10 +12,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class nuevoGrupo extends Activity {
 	String miembros = null;
@@ -32,6 +35,18 @@ public class nuevoGrupo extends Activity {
 		Log.d("GRUPOS", "onCreate");
 		editar=false;
 		Bundle extras = getIntent().getExtras();
+		ListView lv = (ListView) this.findViewById(R.id.members);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			  @Override
+			  public void onItemClick(AdapterView<?> parent, View view,
+			    int position, long id) {
+				  /////////////poner aqui lo de borrar!!
+			    Toast.makeText(getApplicationContext(),
+			      "Click ListItem Number " + position, Toast.LENGTH_LONG)
+			      .show();
+			  }
+			}); 
+		
 		if (extras != null) {
 			nombre = extras.getString("nombre");
 			miembros = extras.getString("miembros");
@@ -40,6 +55,7 @@ public class nuevoGrupo extends Activity {
 			id=extras.getInt("id");
 			escribir();
 		}
+		
 		Log.d("GRUPOS", "onCreate1");
 	}
 
@@ -127,8 +143,12 @@ public class nuevoGrupo extends Activity {
 					android.R.layout.simple_list_item_2, new String[] {
 							"miembro", "mail" }, new int[] {
 							android.R.id.text1, android.R.id.text2 });
-			ListView l1 = (ListView) this.findViewById(R.id.members);
-			l1.setAdapter(adapter);
+			ListView lv = (ListView) this.findViewById(R.id.members);
+			lv.setAdapter(adapter);
+		
+			//final ListView lv = (ListView) findViewById(R.id.members);
+			
+			
 		}
 
 	}

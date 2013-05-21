@@ -39,7 +39,7 @@ public class miembros extends ListActivity {
 	}
 
 	private void mostrarMiembros(String[] e) {
-		// TODO Auto-generated method stub
+		// MODIFICAR: PONER IGUAL QUE EN nuevoGrupo.java
 		final ListView lv1 =(ListView)findViewById(android.R.id.list);		
 		Log.d("MIEMBROS","lista");
 		
