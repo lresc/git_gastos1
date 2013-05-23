@@ -1,52 +1,59 @@
 package com.example.gastos;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import android.app.ListActivity;
-import android.database.Cursor;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.widget.SimpleAdapter;
 
 
-public class miembros extends ListActivity {
+public class miembros extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.miembros);
-		
-		Bundle extras=getIntent().getExtras();
-		Log.d("MIEMBROS","EXTRAS");
-		String miembros=null;
-			if(extras!=null){
-				miembros=extras.getString("miembros");
-				Log.d("MIEMBROS",extras.getString("miembros"));
-			}
-			
-			mostrarMiembros(pasarArray(miembros));
-}
 
-	private String[] pasarArray(String miembros) {
-		// TODO Auto-generated method stub
+		Bundle extras = getIntent().getExtras();
+		
+		String miembros = null;
+		String mails = null;
 
-		Log.d("MIEMBROS","antes de split");
-		String[] result  = miembros.split( "," );
-	
-		//Separate the original text by two characters ("," and ";")
-		
-		
-		return result;
+		if (extras != null) {
+			miembros = extras.getString("miembros");
+			mails = extras.getString("mails");
+		}
+
+		mostrarMiembros(pasarArray(miembros, mails));
 	}
 
-	private void mostrarMiembros(String[] e) {
-		// MODIFICAR: PONER IGUAL QUE EN nuevoGrupo.java
-		final ListView lv1 =(ListView)findViewById(android.R.id.list);		
-		Log.d("MIEMBROS","lista");
-		
-		ArrayAdapter <String> adapter = new ArrayAdapter<String>(this,R.layout.item_miembros,R.id.mnombre,e );
-	//	SimpleCursorAdapter adapter=new SimpleCursorAdapter(this,android.R.layout.simple_item2, cursor, FROM,TO);//hay otro import
-		Log.d("MIEMBROS","lista2");
-		setListAdapter(adapter);
-		
+	private List<Map<String, String>> pasarArray(String miembros, String mails) {
+		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+		String[] result = miembros.split(",");
+		String[] mail = mails.split(",");
+		int i = 0;
+		for (String m : result) {
+			Map<String, String> datum = new HashMap<String, String>(2);
+			datum.put("miembro", m);
+			datum.put("mail", mail[i]);
+			data.add(datum);
+			i++;
+		}
+
+		return data;
+	}
+
+	private void mostrarMiembros(List<Map<String, String>> data) {
+		Log.d("MIEMBROS", "lista");
+		SimpleAdapter adapter = new SimpleAdapter(this, data,
+				android.R.layout.simple_list_item_2, new String[] { "miembro",
+						"mail" }, new int[] { android.R.id.text1,
+						android.R.id.text2 });
+		ListView lv = (ListView) this.findViewById(R.id.lista_miembros);
+		lv.setAdapter(adapter);
+
 	}
 }
