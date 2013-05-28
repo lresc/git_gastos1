@@ -27,10 +27,10 @@
     <string name="g4">¿Concepto?</string>
     <string name="g5">¿Fecha?</string>
     <string name="g6">¿Hora?</string>
-    <string name="ubicacion">Ubicación</string>
+    <string name="ubicacion">Ubicación:</string>
     <string name="recibo">Recibo</string>
     <string name="mapa">Mapa</string>
     <string name="nogrupos">No tiene grupos</string>
     <string name="nogastos">No tiene gastos</string>
-
+	<string name="calcular">Calcular</string>
 </resources>

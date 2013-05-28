@@ -20,27 +20,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+
 
 public class nuevoGrupo extends Activity {
 	List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-	
-	String miembros = null; //parametros usados para editar el grupo, los traer de la clase grupo.java
+
+	String miembros = null; // parametros usados para editar el grupo, los traer
+							// de la clase grupo.java
 	String mails = null;
 	String nombre = null;
 	String sinc = null;
-	boolean editar; //indica si se ha llamado desde editarGrupo (en grupo.java) será true si es q quiere editar grupo
+	boolean editar; // indica si se ha llamado desde editarGrupo (en grupo.java)
+					// será true si es q quiere editar grupo
 	int id;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nuevogrupo);
-	//	Log.d("GRUPOS", "onCreate");
+		// Log.d("GRUPOS", "onCreate");
 		editar = false;
-		
+
 		Bundle extras = getIntent().getExtras();
-		
-		ListView lv = (ListView) this.findViewById(R.id.members);//itemListener en la listView de miembros del grupo
+
+		ListView lv = (ListView) this.findViewById(R.id.members);// itemListener
+																	// en la
+																	// listView
+																	// de
+																	// miembros
+																	// del grupo
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -62,10 +69,15 @@ public class nuevoGrupo extends Activity {
 		Log.d("GRUPOS", "onCreate1");
 	}
 
-	private void alertaBorrar(final int position) {//al seleccionar un item de la listView q muestra los miembros, muestra una alerta: Borrar miembro?
+	private void alertaBorrar(final int position) {// al seleccionar un item de
+													// la listView q muestra los
+													// miembros, muestra una
+													// alerta: Borrar miembro?
 		// TODO Auto-generated method stub
-		new AlertDialog.Builder(this).setMessage("Borrar Miembro?")
-				.setPositiveButton("Borrar",new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(this)
+				.setMessage("Borrar Miembro?")
+				.setPositiveButton("Borrar",
+						new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface arg0, int arg1) {
 								borrarMiembro(position);
@@ -85,9 +97,10 @@ public class nuevoGrupo extends Activity {
 						}).show();
 	}
 
-	private void borrarMiembro(int position) {//borrar miembro de ListView: es llamado al seleccionar un miembro de la listView
+	private void borrarMiembro(int position) {// borrar miembro de ListView: es
+												// llamado al seleccionar un
+												// miembro de la listView
 		int i;
-		Log.d("GRUPOS", "miembros era: " + miembros);
 		String m[] = miembros.split(",");
 		String ma[] = mails.split(",");
 		data.removeAll(data);
@@ -105,7 +118,8 @@ public class nuevoGrupo extends Activity {
 		}
 	}
 
-	private void escribir() {//es llamado cuando se selecciona editarGrupo desde la clase grupo
+	private void escribir() {// es llamado cuando se selecciona editarGrupo
+								// desde la clase grupo
 		int i = 0;
 		EditText e1 = (EditText) this.findViewById(R.id.gname);
 		Button b1 = (Button) this.findViewById(R.id.sincronizarMiembro);
@@ -136,7 +150,8 @@ public class nuevoGrupo extends Activity {
 
 	}
 
-	public void clickMiembro(View v) { //al pulsar añadir miembro, despliega un dialog para introducir nombre y mail
+	public void clickMiembro(View v) { // al pulsar añadir miembro, despliega un
+										// dialog para introducir nombre y mail
 
 		final Dialog prueba = new Dialog(this);
 		prueba.setContentView(R.layout.nuevomiembro);
@@ -165,7 +180,8 @@ public class nuevoGrupo extends Activity {
 		});
 	}
 
-	public void addMembers(String m, String mail) {//añadir miembros al ListView
+	public void addMembers(String m, String mail) {// añadir miembros al
+													// ListView
 
 		if (m != null) {
 			if (m.length() > 0) {
@@ -186,7 +202,7 @@ public class nuevoGrupo extends Activity {
 				datum.put("miembro", m);
 				datum.put("mail", mail);
 				data.add(datum);
-				Log.d("GRUPOS", "data: "+data);
+				Log.d("GRUPOS", "data: " + data);
 			}
 		}
 		SimpleAdapter adapter = new SimpleAdapter(this, data,
@@ -198,19 +214,18 @@ public class nuevoGrupo extends Activity {
 
 	}
 
-	public void clickSincMiembro(View v) { //cuando se pulsa el boton Sincronizar: cambiar a No sincronizar y viceversa
-		Log.d("GRUPOS", "sincMiembro1");
+	public void clickSincMiembro(View v) { // cuando se pulsa el boton
+											// Sincronizar: cambiar a No
+											// sincronizar y viceversa
 		Button e1 = (Button) this.findViewById(R.id.sincronizarMiembro);
-		Log.d("GRUPOS", "sincMiembro2");
 		if (e1.getText().toString() == this.getString(R.string.sync))
 			e1.setText(this.getString(R.string.notsync));
 		else
 			e1.setText(this.getString(R.string.sync));
-		Log.d("GRUPOS", "sincMiembro3");
 	}
 
-	public void clickNuevoGrupo(View v) {//cuanod clicka en aceptar: llama a la clase grupo.java
-
+	public void clickNuevoGrupo(View v) {// cuanod clicka en aceptar: llama a la
+											// clase grupo.java
 
 		EditText e1 = (EditText) this.findViewById(R.id.gname);
 		Button b1 = (Button) this.findViewById(R.id.sincronizarMiembro);
@@ -229,11 +244,10 @@ public class nuevoGrupo extends Activity {
 			// sincronizacion
 			i.putExtra("sync", "true");
 		}
-		Log.d("GRUPOS", "STARTACTIVITY");
 		startActivity(i);
 	}
-	public void clickCancel(View v){
+
+	public void clickCancel(View v) {
 		finish();
 	}
 }
-

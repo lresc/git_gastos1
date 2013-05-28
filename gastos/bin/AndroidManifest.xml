@@ -39,7 +39,9 @@
 		<activity android:name=".gastos"
 				android:label="@string/grupos">
 		</activity>
-		        
+		<activity android:name=".nuevoGasto"
+				android:label="@string/grupos">
+		</activity>
 		
 		
     </application>

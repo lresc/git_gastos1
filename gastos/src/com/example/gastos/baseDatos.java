@@ -30,8 +30,10 @@ public class baseDatos extends SQLiteOpenHelper {
 	String sqlCreate="CREATE TABLE "+ TABLA_GRUPOS +" ("+ _ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " + NOMBRE_GRUPO+
 			" TEXT, "+ MIEMBROS+" TEXT, "+EMAILS+" TEXT, "+ SINCRONIZACION+" TEXT)"; 
 	
-	String sqlCreate2="CREATE TABLE "+TABLA_GASTOS +"("+_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUIEN_PAGO +" TEXT NOT NULL,"+ PARA_QUIEN+" TEXT NOT NULL,"+CUANTO+  "INTEGER NOT NULL,"+ CONCEPTO+" STRING,"+FECHA+" NUMERIC NOT NULL,"+FOTO+" TEXT,"+ UBICACION+"TEXT);";
-	//falta deudas!!!!!!!!!!!!!!!		
+	String sqlCreate2="CREATE TABLE "+TABLA_GASTOS +"("+_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, id_grupo INTEGER NOT NULL, " + 
+	QUIEN_PAGO +" TEXT NOT NULL, "+ PARA_QUIEN+" TEXT NOT NULL,"+CUANTO+ 
+	" INTEGER NOT NULL,"+ CONCEPTO+" STRING,"+FECHA+" NUMERIC NOT NULL,"+FOTO+" TEXT, "+ UBICACION+" TEXT)";
+		
 
 	
 	String sqlUpdate="DROP TABLE IF EXISTS "+ TABLA_GRUPOS; //PARA ACTUALZIAZ
@@ -47,7 +49,7 @@ public class baseDatos extends SQLiteOpenHelper {
 		Log.d("BD","3");	
 		db.execSQL(sqlCreate);
 		Log.d("BD","4");
-		//db.execSQL(sqlCreate2);
+		db.execSQL(sqlCreate2);
 		
 	}
 	@Override
@@ -56,7 +58,7 @@ public class baseDatos extends SQLiteOpenHelper {
 
 			Log.d("BD","7");
 			db.execSQL(sqlUpdate);
-			//db.execSQL(sqlUpdate1);
+			db.execSQL(sqlUpdate1);
 			onCreate(db);
 		
 	}

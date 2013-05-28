@@ -131,8 +131,13 @@ public class grupos extends ListActivity {
 
 			return true;
 		case R.id.menu_verGastos:
-			Intent i = new Intent(this, gastos.class);
-			// poner de extra el id de grupo
+		//	Intent i = new Intent(this, gastos.class);
+			Log.d("GRUPOS","VERGASTOS");
+			Intent i = new Intent(this, nuevoGasto.class);//en realidad es el otro, pero para ir probando..
+			cursor.moveToFirst();
+			cursor.move(info.position);
+			i.putExtra("id", cursor.getInt(0));
+			i.putExtra("miembros", cursor.getString(2));
 			startActivity(i);
 			return true;
 
