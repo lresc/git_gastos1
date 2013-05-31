@@ -9,8 +9,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -37,7 +40,9 @@ public class nuevoGasto extends Activity {
 	// para la foto:
 	static final int TOMAR_FOTO = 100;// nos permitira saber el origen al
 										// procesar la respuesta del intento
+	static final int UBICACION = 3; // en onActivyResult
 	Uri fileUri = null;// para guardar el path donde se almacenará la fotografia
+	String location = null;// guarda la location: latitude,longitude
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,47 +56,77 @@ public class nuevoGasto extends Activity {
 		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, datos);
 
-		Spinner cmbOpciones;
-
-		cmbOpciones = (Spinner) findViewById(R.id.quien_pago);
-
-		adaptador
-				.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
-
+		Spinner cmbOpciones = (Spinner) findViewById(R.id.quien_pago);
+		adaptador.setDropDownViewResource(android.R.layout.simple_spinner_item);
 		cmbOpciones.setAdapter(adaptador);
 
-		/*
-		 * ArrayAdapter<String> adaptador2 = new ArrayAdapter<String>(this,
-		 * android.R.layout.simple_list_item_multiple_choice, datos);
-		 * 
-		 * cmbOpciones2.setAdapter(adaptador2);
-		 */
+		EditText e1 = (EditText) findViewById(R.id.fecha);
+		EditText e2 = (EditText) findViewById(R.id.hora);
+		e1.setText(getFechaActual());
+		e2.setText(getHoraActual());
 	}
 
 	public void clickAceptar(View v) {
 		Log.d("gastos", "clickAceptar");
 
-		EditText e1 = (EditText) findViewById(R.id.quien_pago);
-		EditText e2 = (EditText) findViewById(R.id.para_quien);
+		Spinner e1 = (Spinner) findViewById(R.id.quien_pago);
+		TextView e2 = (TextView) findViewById(R.id.aquien);
 		EditText e3 = (EditText) findViewById(R.id.cuanto);
 		EditText e4 = (EditText) findViewById(R.id.concepto);// puede ser null
-		// la fecha se introduce automaticamente con ms getms?
-		Intent i = new Intent(this, grupos.class);
-		i.putExtra("id", id);// id del grupo a editar en la clase grupo, solo se
-		i.putExtra("quien_pago", e1.getText().toString());
-		i.putExtra("para_quien", e2.getText().toString());
-		i.putExtra("cuanto", e3.getText());
-		i.putExtra("concepto", e4.getText().toString());
-		i.putExtra("fecha", getFechaActual());
-		i.putExtra("hora", getHoraActual());
-		startActivity(i);
+		EditText e5 = (EditText) findViewById(R.id.fecha);
+		EditText e6 = (EditText) findViewById(R.id.hora);
+
+		if (e2.getText().toString().length()<1) {
+			Toast.makeText(this, "Rellene a quien paga", Toast.LENGTH_LONG)
+					.show();
+		} else if (e3.getText().toString().length()<1) {
+			Toast.makeText(this, "Rellene cuanto paga", Toast.LENGTH_LONG)
+					.show();
+		} else {
+			Intent i = new Intent(this, gastos.class);
+			i.putExtra("id", id);// id del grupo a editar en la clase grupo,							// solo se
+			i.putExtra("quien_pago",
+					e1.getItemAtPosition(e1.getSelectedItemPosition())
+							.toString());
+			i.putExtra("para_quien", e2.getText().toString());
+			i.putExtra("cuanto", Integer.parseInt(e3.getText().toString()));
+			if (e4.getText().toString().length() > 0) {
+				i.putExtra("concepto", e4.getText().toString());
+			}
+			else
+				i.putExtra("concepto", "");
+Log.d("gastos", "pasa0");
+			if (fileUri != null) {
+				i.putExtra("foto", fileUri.getPath());// se guarda el string
+Log.d("gastos","pasa1");														// donde
+
+			}else
+				i.putExtra("foto", "");
+		
+			if (location != null) {
+				i.putExtra("location", location); // la ubicacion // estaria la
+											// foto
+			}
+			else
+				i.putExtra("location","");
+			i.putExtra("fecha", e5.getText().toString());
+			i.putExtra("hora", e6.getText().toString());
+			startActivity(i);
+
+		}
 	}
 
 	public void clickUbicacion(View v) {
 		Log.d("MIEMBROS", "Ubicacion");
+		Log.d("MIEMBROS", new SimpleDateFormat("HH:mm:ss").format(new Date()));
+		Log.d("MIEMBROS", new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+
+		Intent i = new Intent(this, ubicacion.class);
+		startActivityForResult(i, UBICACION);
+
 	}
 
-	public void clickParaQuien(View v) {
+	public void clickParaQuien(View v) {// para quien pago
 
 		mSelectedItems = new ArrayList();
 
@@ -214,7 +249,8 @@ public class nuevoGasto extends Activity {
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) { // foto
+		// PARA CAMARA
 		try {
 			if (requestCode == TOMAR_FOTO) {
 				if (resultCode == RESULT_OK) {
@@ -225,9 +261,18 @@ public class nuevoGasto extends Activity {
 		} catch (Exception ex) {
 			Log.e("Error al volver de la foto", ex.getMessage());
 		}
+		// PARA UBICACION
+		if (requestCode == UBICACION) {
+			Log.d("UBICACION", "onActivityResult; ubicacion");
+			if (resultCode == RESULT_OK) {
+				Log.d("UBICACION", "onActivityResult; resultOK");
+				location = data.getStringExtra(ubicacion.LOCATION);
+				Log.d("location", "onActivityResult;" + location);
+			}
+		}
 	}
 
-	private Uri obtenerNuevoArchivo() {
+	private Uri obtenerNuevoArchivo() {// foto
 
 		Uri uri = null;
 
@@ -256,11 +301,12 @@ public class nuevoGasto extends Activity {
 	}
 
 	public static String getHoraActual() {
-		return new SimpleDateFormat("hh:mm:ss").format(new Date());// hh en
+		return new SimpleDateFormat("HH:mm:ss").format(new Date());// hh en
 																	// mayus??
 	}
 
 	public void clickCancelar(View v) {
 		Log.d("gastos", "clickCancelar");
+		finish();
 	}
 }

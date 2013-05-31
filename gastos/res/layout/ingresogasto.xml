@@ -36,10 +36,11 @@ android:onClick="clickParaQuien"
         android:id="@+id/para_quien" 
         />
      <TextView 
+	    android:id="@+id/aquien"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content" 
 	    android:text=""
-	    android:id="@+id/aquien"
+	
          />
 </TableRow>
     <TextView

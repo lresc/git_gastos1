@@ -24,16 +24,17 @@ public class grupos extends ListActivity {
 			SINCRONIZACION };
 	private static int[] TO = { R.id.gnombre, R.id.gmiembros };// los campos q nos interesan de item.xml
 																
-	String ORDER_BY = NOMBRE_GRUPO + " ASC";
+	String ORDER_BY = NOMBRE_GRUPO + " DESC";
 	Cursor cursor;
 
-	private baseDatos groups = new baseDatos(this);
+	private baseDatos groups;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grupos);
-
+		Log.d("grupos","tras layout grupos =)");
 		Bundle extras = getIntent().getExtras();
+		groups = new baseDatos(this);
 		if (extras != null) {
 			
 			String nombre = extras.getString("name");
@@ -45,11 +46,9 @@ public class grupos extends ListActivity {
 			if (nombre.length() > 0 && miembros != null) { //ni el nombre y los miembros son null
 				Log.d("GRUPOS", "NOMBRE NO ES NULL Y MIEMBROS TAMPOCO");
 				if (editar) //se edita un grupo
-					editarGrupo(extras.getInt("id"), nombre, miembros, mails,
-							sinc);
+					editarGrupo(extras.getInt("id"), nombre, miembros, mails,sinc);
 				else//se añade un grupo nuevo
 					agregarGrupo(nombre, miembros, mails, sinc);
-
 			} else 
 				Log.d("GRUPOS", "NOMBRE o miembros ES NULL");
 			
@@ -85,7 +84,7 @@ public class grupos extends ListActivity {
 		values.put(EMAILS, mail);
 		values.put(SINCRONIZACION, synq);
 		db.insertOrThrow(TABLA_GRUPOS, null, values);
-		// db.close();
+	//	db.close();
 	}
 
 	private Cursor obtenerGrupos() {//lectura de la BBDD a los grupos
@@ -104,7 +103,7 @@ public class grupos extends ListActivity {
 				R.layout.item, cursor, new String[] { NOMBRE_GRUPO, MIEMBROS },
 				TO);// hay otro import
 		setListAdapter(adapter);
-
+		
 	}
 
 	@Override

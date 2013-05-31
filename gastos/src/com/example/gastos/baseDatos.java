@@ -16,12 +16,12 @@ public class baseDatos extends SQLiteOpenHelper {
 	private final static  int VERSION_BASE=1;
 	
 	
-//	private final Context myContext;
+	private final Context myContext;
 	
 	public baseDatos(Context context) {
 		super(context, DB_NAME, null, VERSION_BASE);
 		Log.d("BD","1");
-//		this.myContext=context;
+		this.myContext=context;
 	}
 	
 
@@ -30,9 +30,9 @@ public class baseDatos extends SQLiteOpenHelper {
 	String sqlCreate="CREATE TABLE "+ TABLA_GRUPOS +" ("+ _ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " + NOMBRE_GRUPO+
 			" TEXT, "+ MIEMBROS+" TEXT, "+EMAILS+" TEXT, "+ SINCRONIZACION+" TEXT)"; 
 	
-	String sqlCreate2="CREATE TABLE "+TABLA_GASTOS +"("+_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, id_grupo INTEGER NOT NULL, " + 
+	String sqlCreate2="CREATE TABLE "+TABLA_GASTOS +"("+_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ID_GRUPO+" INTEGER NOT NULL, " + 
 	QUIEN_PAGO +" TEXT NOT NULL, "+ PARA_QUIEN+" TEXT NOT NULL,"+CUANTO+ 
-	" INTEGER NOT NULL,"+ CONCEPTO+" STRING,"+FECHA+" NUMERIC NOT NULL,"+FOTO+" TEXT, "+ UBICACION+" TEXT)";
+	" INTEGER NOT NULL,"+ CONCEPTO+" STRING,"+FECHA+" TEXT NOT NULL, "+HORA+" TEXT NOT NULL,"+FOTO+" TEXT, "+ UBICACION+" TEXT)";
 		
 
 	

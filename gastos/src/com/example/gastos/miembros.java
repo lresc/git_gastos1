@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 
-public class miembros extends Activity {
+public class miembros extends Activity {//si en el xml no se declara list view: "@android:id/list" no extiende de listActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.miembros);

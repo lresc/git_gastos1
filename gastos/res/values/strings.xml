@@ -20,6 +20,8 @@
     <string name="sync">Sincronizar</string>
     <string name="notsync">No sincronizar</string>
     <string name="miembros"></string>
+    <string name="pago">pagó</string>
+    <string name="a">A</string>
     <string name="grupos">Grupos</string>
     <string name="g1">¿Quién pagó?</string>
     <string name="g2">¿Para quién?</string>
@@ -33,4 +35,8 @@
     <string name="nogrupos">No tiene grupos</string>
     <string name="nogastos">No tiene gastos</string>
 	<string name="calcular">Calcular</string>
+	<string name="verRecibo">Ver Recibo</string>
+	<string name="verUbicacion">Ver Ubicación</string>
+	<string name="editarGasto">Editar Gasto</string>
+	<string name="borrarGasto">Borrar Gasto</string>
 </resources>

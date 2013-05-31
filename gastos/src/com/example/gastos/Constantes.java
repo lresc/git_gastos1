@@ -16,7 +16,7 @@ public interface Constantes extends BaseColumns{
 	public static final String SINCRONIZACION="sincronizacion";
 	
 	//Columnas en la tabla gastos
-	
+	public static final String ID_GRUPO="id_grupo";
 	public static final String QUIEN_PAGO="quien_pago";
 	public static final String PARA_QUIEN="para_quien";
 	public static final String CUANTO="cuanto";

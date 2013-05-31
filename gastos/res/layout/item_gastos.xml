@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+    <TableRow
+        android:id="@+id/fila0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+     <TextView
+        android:id="@+id/paga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true" 
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textIsSelectable="true"
+        android:drawSelectorOnTop="true"
+        android:divider="@color/azul">
+        
+    </TextView>
+    <TextView
+       android:id="@+id/e0"
+    
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=" "
+     /> 
+    <TextView
+        android:id="@+id/pago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true" 
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textIsSelectable="true"
+        android:drawSelectorOnTop="true"
+        android:text="@string/pago"
+        >
+        
+    </TextView>
+  <TextView
+      android:id="@+id/e1"
+    
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=" "
+     /> 
+
+	<TextView
+        android:id="@+id/cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textIsSelectable="true"
+        android:ellipsize="end"
+        />
+	
+	</TableRow>
+
+	<TableRow
+	    android:id="@+id/fila1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/fila0" >
+
+	   <TextView
+        android:id="@+id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:text="@string/a"
+        android:textIsSelectable="true"
+      
+      /> 
+	      <TextView
+      android:id="@+id/e2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=" "
+     /> 
+        <TextView
+      android:id="@+id/aquienitem"
+      
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textIsSelectable="true"
+       android:singleLine="true"
+        android:textStyle="bold"
+        android:ellipsize="end"
+     /> 
+       
+	</TableRow>    
+</RelativeLayout>
