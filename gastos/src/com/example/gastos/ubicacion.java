@@ -25,7 +25,6 @@ public class ubicacion extends FragmentActivity {
 	private LocationManager mgr;
 	private String mejor;
 	public final static String LOCATION = "com.example.gastos.LOCATION";
-	private boolean ver = false;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,7 +34,6 @@ public class ubicacion extends FragmentActivity {
 		Double latitude;
 		Double longitude;
 		if (extras != null) {
-			ver = extras.getBoolean("ver");//borrar pq no se usa...
 			latitude = extras.getDouble("latitude");
 			longitude = extras.getDouble("longitude");
 

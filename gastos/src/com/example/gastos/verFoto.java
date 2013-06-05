@@ -5,6 +5,7 @@ import java.io.File;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -23,8 +24,11 @@ public class verFoto extends Activity {
 		File imgFile = new File(path);
 		Log.d("foto","3");
 		if (imgFile.exists()) {
-			myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+			//myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 			Log.d("foto","4");
+			Options opt = new BitmapFactory.Options();
+			opt.inSampleSize=8;//para reducirla, de la otra forma error, tamaño muy grande for this process
+			myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),opt);
 			ImageView myImage = (ImageView) findViewById(R.id.imagen);
 			Log.d("foto","5");
 			myImage.setImageBitmap(myBitmap);

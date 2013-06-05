@@ -29,11 +29,13 @@
     <string name="g4">¿Concepto?</string>
     <string name="g5">¿Fecha?</string>
     <string name="g6">¿Hora?</string>
+    <string name="addGastos">Añadir gasto</string>
     <string name="ubicacion">Ubicación:</string>
     <string name="recibo">Recibo</string>
     <string name="mapa">Mapa</string>
     <string name="nogrupos">No tiene grupos</string>
     <string name="nogastos">No tiene gastos</string>
+    <string name="nodeudas">No tiene deudas</string>
 	<string name="calcular">Calcular</string>
 	<string name="verRecibo">Ver Recibo</string>
 	<string name="verUbicacion">Ver Ubicación</string>

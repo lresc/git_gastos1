@@ -47,7 +47,7 @@ public class miembros extends Activity {//si en el xml no se declara list view: 
 	}
 
 	private void mostrarMiembros(List<Map<String, String>> data) {
-		Log.d("MIEMBROS", "lista");
+		
 		SimpleAdapter adapter = new SimpleAdapter(this, data,
 				android.R.layout.simple_list_item_2, new String[] { "miembro",
 						"mail" }, new int[] { android.R.id.text1,

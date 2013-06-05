@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10sp" >
+     <TextView
+        android:id="@+id/dnombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true" 
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textIsSelectable="true"
+        android:drawSelectorOnTop="true"
+        android:divider="@color/azul">
+        
+    </TextView>
+  
+  <TextView
+      android:id="@+id/flecha"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=" ---> "
+     /> 
+
+	<TextView
+        android:id="@+id/da_quien"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textStyle="italic"
+        android:textIsSelectable="true"
+        android:ellipsize="end"
+        android:text="@string/g1"
+        >
+	</TextView> 
+</LinearLayout>

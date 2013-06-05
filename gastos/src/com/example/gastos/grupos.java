@@ -22,8 +22,10 @@ public class grupos extends ListActivity {
 	// ESTA ACTIVITY MOSTRARA UNA LISTA DE LOS GRUPOS
 	private static String[] FROM = { _ID, NOMBRE_GRUPO, MIEMBROS, EMAILS,
 			SINCRONIZACION };
-	private static int[] TO = { R.id.gnombre, R.id.gmiembros };// los campos q nos interesan de item.xml
-																
+	private static int[] TO = { R.id.gnombre, R.id.gmiembros };// los campos q
+																// nos interesan
+																// de item.xml
+
 	String ORDER_BY = NOMBRE_GRUPO + " DESC";
 	Cursor cursor;
 
@@ -32,26 +34,29 @@ public class grupos extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grupos);
-		Log.d("grupos","tras layout grupos =)");
+		Log.d("grupos", "tras layout grupos =)");
 		Bundle extras = getIntent().getExtras();
 		groups = new baseDatos(this);
 		if (extras != null) {
-			
+
 			String nombre = extras.getString("name");
 			String miembros = extras.getString("members");
 			String sinc = extras.getString("sync");
 			String mails = extras.getString("mails");
 			boolean editar = extras.getBoolean("editar");
 
-			if (nombre.length() > 0 && miembros != null) { //ni el nombre y los miembros son null
+			if (nombre.length() > 0 && miembros != null) { // ni el nombre y los
+															// miembros son null
 				Log.d("GRUPOS", "NOMBRE NO ES NULL Y MIEMBROS TAMPOCO");
-				if (editar) //se edita un grupo
-					editarGrupo(extras.getInt("id"), nombre, miembros, mails,sinc);
-				else//se añade un grupo nuevo
+				if (editar) // se edita un grupo
+					editarGrupo(extras.getInt("id"), nombre, miembros, mails,
+							sinc);
+				else
+					// se añade un grupo nuevo
 					agregarGrupo(nombre, miembros, mails, sinc);
-			} else 
+			} else
 				Log.d("GRUPOS", "NOMBRE o miembros ES NULL");
-			
+
 		}
 
 		registerForContextMenu(getListView());
@@ -60,7 +65,8 @@ public class grupos extends ListActivity {
 	}
 
 	private void editarGrupo(int id, String nameg, String memb, String mail,
-			String synq) {//actualiza los datos en la BBDD tras haber editado un grupo
+			String synq) {// actualiza los datos en la BBDD tras haber editado
+							// un grupo
 		SQLiteDatabase db = groups.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -73,7 +79,8 @@ public class grupos extends ListActivity {
 	}
 
 	private void agregarGrupo(String nameg, String memb, String mail,
-			String synq) { 	// TRAS nuevoGrupo.java al aceptar, escribe en la base de datos el grupo
+			String synq) { // TRAS nuevoGrupo.java al aceptar, escribe en la
+							// base de datos el grupo
 
 		Log.d("GRUPOS", "NEW BD");
 		SQLiteDatabase db = groups.getWritableDatabase();
@@ -84,10 +91,10 @@ public class grupos extends ListActivity {
 		values.put(EMAILS, mail);
 		values.put(SINCRONIZACION, synq);
 		db.insertOrThrow(TABLA_GRUPOS, null, values);
-	//	db.close();
+		// db.close();
 	}
 
-	private Cursor obtenerGrupos() {//lectura de la BBDD a los grupos
+	private Cursor obtenerGrupos() {// lectura de la BBDD a los grupos
 
 		SQLiteDatabase db = groups.getReadableDatabase();
 		cursor = db.query(TABLA_GRUPOS, FROM, null, null, null, null, ORDER_BY);
@@ -97,25 +104,26 @@ public class grupos extends ListActivity {
 
 	}
 
-	private void mostrarGrupos(Cursor cursor) {//muestra los grupos
+	private void mostrarGrupos(Cursor cursor) {// muestra los grupos
 		cursor.moveToFirst();
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 				R.layout.item, cursor, new String[] { NOMBRE_GRUPO, MIEMBROS },
 				TO);// hay otro import
 		setListAdapter(adapter);
-		
+
 	}
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {//crea el menu
+			ContextMenuInfo menuInfo) {// crea el menu
 		super.onCreateContextMenu(menu, v, menuInfo);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_grupos, menu);
 	}
 
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {//el menu al presionar sobre un grupo
+	public boolean onContextItemSelected(MenuItem item) {// el menu al presionar
+															// sobre un grupo
 
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 				.getMenuInfo();
@@ -129,12 +137,18 @@ public class grupos extends ListActivity {
 			startActivity(i0);
 
 			return true;
+
 		case R.id.menu_verGastos:
-		//	Intent i = new Intent(this, gastos.class);
-			Log.d("GRUPOS","VERGASTOS");
-			Intent i = new Intent(this, nuevoGasto.class);//en realidad es el otro, pero para ir probando..
+			// Intent i = new Intent(this, gastos.class);
+			Log.d("GRUPOS", "VERGASTOS");
+			Intent i = new Intent(this, gastos.class);// en realidad es el
+															// otro, pero para
+															// ir probando..
 			cursor.moveToFirst();
 			cursor.move(info.position);
+			i.putExtra("listar", true);// cuando se llame a nuevoGasto para
+										// agregar grupo tendran que ir estos 3
+										// extras
 			i.putExtra("id", cursor.getInt(0));
 			i.putExtra("miembros", cursor.getString(2));
 			startActivity(i);
@@ -167,7 +181,7 @@ public class grupos extends ListActivity {
 
 	}
 
-	private int borrarGrupo(int id) {//borra grupo seleccionado
+	private int borrarGrupo(int id) {// borra grupo seleccionado
 		SQLiteDatabase db = groups.getWritableDatabase();
 		return db.delete(TABLA_GRUPOS, _ID + "='" + id + "'", null);
 	}

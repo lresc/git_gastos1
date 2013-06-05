@@ -37,7 +37,7 @@ public class nuevoGrupo extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.nuevogrupo);
-		// Log.d("GRUPOS", "onCreate");
+
 		editar = false;
 
 		Bundle extras = getIntent().getExtras();

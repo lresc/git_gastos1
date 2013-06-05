@@ -20,6 +20,7 @@ public interface Constantes extends BaseColumns{
 	public static final String QUIEN_PAGO="quien_pago";
 	public static final String PARA_QUIEN="para_quien";
 	public static final String CUANTO="cuanto";
+	public static final String DEUDA_ACTUAL="deuda_actual";
 	public static final String CONCEPTO="concepto";
 	public static final String FECHA="fecha";
 	public static final String HORA="hora";
@@ -28,9 +29,9 @@ public interface Constantes extends BaseColumns{
 	
 	//Columnas en la tabla deudas
 	
-	//public static final String
-	//Se pone tb la id_gastos_anterior? o con _.ID?¿
-	//como escribir el campo 
+	//public static final String ID_GRUPO="id_grupo";
+	public static final String DEUDA_TOTAL="deudas";
+
 	
 	
 	
